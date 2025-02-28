@@ -7,14 +7,25 @@ document.addEventListener("DOMContentLoaded", function () {
     let fortunes = [];
     let cookieCracked = false;
 
-    // Load fortunes from JSON file
+    // Load fortunes from JSON file with enhanced error handling
     fetch("fortunes.json")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             fortunes = data.fortunes;
             console.log("Fortunes loaded:", fortunes);
+            if (fortunes.length === 0) {
+                fortuneText.textContent = "No fortunes found in the file.";
+            }
         })
-        .catch(error => console.error("Error loading fortunes:", error));
+        .catch(error => {
+            console.error("Error loading fortunes:", error);
+            fortuneText.textContent = "Failed to load fortunes. Check the console for details.";
+        });
 
     // Event listener for clicking the cookie
     cookieImg.addEventListener("click", function () {
