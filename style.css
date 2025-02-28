@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;  /* Using Arial */
+    font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     text-align: center;
     padding: 20px;
@@ -17,6 +17,11 @@ body {
 h1 {
     font-size: 24px;
     color: #333;
+}
+
+.cookie-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 #cookie-img {
@@ -40,4 +45,20 @@ h1 {
 
 .cracked {
     opacity: 0.7;
+}
+
+#reset-btn {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#reset-btn:hover {
+    background-color: #0056b3;
 }
