@@ -2,8 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const cookieImg = document.getElementById("cookie-img");
     const fortuneText = document.getElementById("fortune-text");
     const crackSound = document.getElementById("crack-sound");
+    const newCookieBtn = document.getElementById("new-cookie-btn");
 
     let fortunes = [];
+    let cookieCracked = false;
 
     // Load fortunes.json
     fetch("fortunes.json")
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listener for clicking the cookie
     cookieImg.addEventListener("click", function () {
-        if (fortunes.length > 0) {
+        if (!cookieCracked && fortunes.length > 0) {
             const randomIndex = Math.floor(Math.random() * fortunes.length);
             fortuneText.textContent = fortunes[randomIndex];
 
@@ -24,13 +26,22 @@ document.addEventListener("DOMContentLoaded", function () {
             crackSound.currentTime = 0;
             crackSound.play();
 
-            // Change cookie image (if cracked version exists)
+            // Change cookie image to cracked
             cookieImg.src = "cracked.png";
-            setTimeout(() => {
-                cookieImg.src = "cookie.png"; // Reset image
-            }, 2000);
-        } else {
+            cookieCracked = true;
+
+            // Show "New Cookie" button
+            newCookieBtn.style.display = "inline-block";
+        } else if (fortunes.length === 0) {
             fortuneText.textContent = "Loading fortunes...";
         }
+    });
+
+    // Event listener for getting a new cookie
+    newCookieBtn.addEventListener("click", function () {
+        cookieImg.src = "cookie.png";
+        fortuneText.textContent = "Click the cookie to reveal your fortune!";
+        cookieCracked = false;
+        newCookieBtn.style.display = "none";
     });
 });
