@@ -1,6 +1,6 @@
 /* Set background image */
 body {
-    background: url('IMG_20250301_055640.png') no-repeat center center fixed;
+    background: url('background.png') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@ header {
     background: rgba(0, 0, 0, 0.6); /* Slight dark overlay */
 }
 
-header img {
+#logo {
     height: 50px;
 }
 
@@ -65,7 +65,7 @@ button:hover {
         flex-direction: column;
     }
 
-    header img {
+    #logo {
         height: 40px;
     }
 
