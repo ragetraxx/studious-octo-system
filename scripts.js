@@ -7,27 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let fortunes = [];
     let cookieCracked = false;
 
-    // Load fortunes from JSON file with enhanced error handling
-    function loadFortunes() {
-        fetch("fortunes.json")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                fortunes = data.fortunes;
-                console.log("Fortunes loaded successfully:", fortunes);
-            })
-            .catch(error => {
-                console.error("Error loading fortunes:", error);
-                fortuneText.textContent = "Failed to load fortunes. Please refresh the page.";
-            });
-    }
-
-    // Ensure fortunes are loaded before first click
-    loadFortunes();
+    // Load fortunes.json
+    fetch("fortunes.json")
+        .then(response => response.json())
+        .then(data => {
+            fortunes = data.fortunes;
+            console.log("Fortunes loaded:", fortunes);
+        })
+        .catch(error => console.error("Error loading fortunes:", error));
 
     // Event listener for clicking the cookie
     cookieImg.addEventListener("click", function () {
@@ -35,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const randomIndex = Math.floor(Math.random() * fortunes.length);
             fortuneText.textContent = fortunes[randomIndex];
 
-            // Play cracking sound
+            // Play sound
             crackSound.currentTime = 0;
             crackSound.play();
 
@@ -46,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Show "New Cookie" button
             newCookieBtn.style.display = "inline-block";
         } else if (fortunes.length === 0) {
-            fortuneText.textContent = "Fortunes are still loading...";
+            fortuneText.textContent = "Loading fortunes...";
         }
     });
 
