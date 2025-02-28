@@ -22,7 +22,7 @@ function generateFortune() {
     crackSound.play();
 
     // Change the cookie image to "cracked"
-    cookieImg.src = "https://i.imgur.com/UQaUq8b.png";
+    cookieImg.src = "cracked.png";
     cookieImg.classList.add("cracked");
 
     // Delay before showing the fortune
