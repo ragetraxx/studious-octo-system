@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let fortunes = [];
     let cookieCracked = false;
 
-    // Load fortunes.json
+    // Load fortunes from JSON file
     fetch("fortunes.json")
         .then(response => response.json())
         .then(data => {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const randomIndex = Math.floor(Math.random() * fortunes.length);
             fortuneText.textContent = fortunes[randomIndex];
 
-            // Play sound
+            // Play cracking sound
             crackSound.currentTime = 0;
             crackSound.play();
 
