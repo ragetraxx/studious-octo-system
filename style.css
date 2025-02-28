@@ -1,27 +1,17 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
     text-align: center;
-    padding: 20px;
+    background-color: #f8e8c2;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    max-width: 500px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
 }
 
 h1 {
-    font-size: 24px;
-    color: #333;
-}
-
-.cookie-wrapper {
-    display: flex;
-    justify-content: center;
+    color: #6b4226;
 }
 
 #cookie-img {
@@ -30,35 +20,13 @@ h1 {
     transition: transform 0.2s;
 }
 
-#cookie-img:hover {
-    transform: scale(1.1);
+#cookie-img:active {
+    transform: scale(0.9);
 }
 
-#fortune-text {
+p {
     font-size: 18px;
+    color: #6b4226;
     font-weight: bold;
-    color: #555;
     margin-top: 20px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.cracked {
-    opacity: 0.7;
-}
-
-#reset-btn {
-    display: none;
-    margin-top: 20px;
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#reset-btn:hover {
-    background-color: #0056b3;
 }
