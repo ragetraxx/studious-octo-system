@@ -30,3 +30,18 @@ p {
     font-weight: bold;
     margin-top: 20px;
 }
+
+button {
+    background-color: #6b4226;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #8a5a3d;
+}
