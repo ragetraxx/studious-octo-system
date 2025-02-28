@@ -8,24 +8,26 @@ document.addEventListener("DOMContentLoaded", function () {
     let cookieCracked = false;
 
     // Load fortunes from JSON file with enhanced error handling
-    fetch("fortunes.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            fortunes = data.fortunes;
-            console.log("Fortunes loaded:", fortunes);
-            if (fortunes.length === 0) {
-                fortuneText.textContent = "No fortunes found in the file.";
-            }
-        })
-        .catch(error => {
-            console.error("Error loading fortunes:", error);
-            fortuneText.textContent = "Failed to load fortunes. Check the console for details.";
-        });
+    function loadFortunes() {
+        fetch("fortunes.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                fortunes = data.fortunes;
+                console.log("Fortunes loaded successfully:", fortunes);
+            })
+            .catch(error => {
+                console.error("Error loading fortunes:", error);
+                fortuneText.textContent = "Failed to load fortunes. Please refresh the page.";
+            });
+    }
+
+    // Ensure fortunes are loaded before first click
+    loadFortunes();
 
     // Event listener for clicking the cookie
     cookieImg.addEventListener("click", function () {
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Show "New Cookie" button
             newCookieBtn.style.display = "inline-block";
         } else if (fortunes.length === 0) {
-            fortuneText.textContent = "Loading fortunes...";
+            fortuneText.textContent = "Fortunes are still loading...";
         }
     });
 
