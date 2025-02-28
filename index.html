@@ -11,13 +11,14 @@
     <div class="container">
         <h1>🥠 Fortune Cookie 🥠</h1>
         <div class="cookie-wrapper">
-            <img id="cookie-img" src="cookie.png" alt="Fortune Cookie" onclick="generateFortune()">
+            <img id="cookie-img" src="cookie.png" alt="Fortune Cookie" onclick="crackCookie()">
         </div>
         <p id="fortune-text">Click the cookie to reveal your fortune!</p>
+        <button id="reset-btn" onclick="resetCookie()">Try Again</button>
     </div>
 
     <audio id="crack-sound" src="crack.mp3"></audio>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
