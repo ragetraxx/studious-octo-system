@@ -1,12 +1,9 @@
-/* Set background image */
 body {
-    background: url('background.png') no-repeat center center fixed;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
     text-align: center;
-    color: white;
+    background-color: #f8e8c2;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header styles */
@@ -18,58 +15,42 @@ header {
     background: rgba(0, 0, 0, 0.6); /* Slight dark overlay */
 }
 
-#logo {
-    height: 50px;
+.container {
+    margin-top: 50px;
 }
 
-/* Fortune text */
-#fortune-text {
-    font-size: 1.5em;
-    margin: 20px 0;
+h1 {
+    color: #6b4226;
 }
 
-/* Cookie image */
-.cookie {
+#cookie-img {
     width: 200px;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
-.cookie:hover {
-    transform: scale(1.1);
+#cookie-img:active {
+    transform: scale(0.9);
 }
 
-/* Button styles */
-button {
-    padding: 10px 15px;
-    font-size: 1.2em;
+p {
+    font-size: 18px;
+    color: #6b4226;
+    font-weight: bold;
     margin-top: 20px;
-    border: none;
-    background: orange;
+}
+
+button {
+    background-color: #6b4226;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
     cursor: pointer;
     border-radius: 5px;
 }
 
 button:hover {
-    background: darkorange;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    body {
-        background-size: contain;
-    }
-
-    header {
-        flex-direction: column;
-    }
-
-    #logo {
-        height: 40px;
-    }
-
-    .cookie {
-        width: 150px;
-    }
+    background-color: #8a5a3d;
 }
