@@ -11,15 +11,14 @@
         <img src="logo.png" alt="Game Logo" class="logo">
         
         <div class="game">
-            <img src="cookie.png" alt="Fortune Cookie" class="cookie" onclick="crackCookie()">
-            <img src="cracked.png" alt="Cracked Cookie" class="crack hidden">
+            <img id="cookie" src="cookie.png" alt="Fortune Cookie" onclick="crackCookie()">
         </div>
         
         <p id="fortune" class="hidden"></p>
         <button id="newCookie" class="hidden" onclick="resetGame()">Get a New Cookie</button>
     </div>
 
-    <audio id="crackSound" src="cookie.mp3"></audio>
+    <audio id="crackSound" src="crack.mp3"></audio>
     
     <script src="script.js"></script>
 </body>
