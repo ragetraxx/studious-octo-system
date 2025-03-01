@@ -17,7 +17,7 @@ body {
 
 .container {
     position: relative;
-    width: 100%;
+    width: 90%;
     max-width: 500px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.85);
@@ -27,31 +27,26 @@ body {
 
 .logo {
     width: 150px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .game {
     position: relative;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 200px;
 }
 
 .cookie, .crack {
     width: 180px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+    position: absolute;
 }
 
 .cookie:hover {
     transform: scale(1.05);
-}
-
-.crack {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .hidden {
