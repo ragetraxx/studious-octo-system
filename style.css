@@ -36,7 +36,7 @@ h1 {
 #fortune {
     margin-top: 20px;
     font-size: 20px;
-    color: #000;
+    color: black; /* Ensures text is black */
     font-weight: bold;
 }
 
