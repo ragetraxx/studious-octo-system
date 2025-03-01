@@ -1,5 +1,8 @@
-// Global variable to store fortunes
+// Global variable for fortunes
 let fortunes = [];
+
+// Load sound effect
+let crackSound = new Audio('crack.mp3');
 
 // Load fortunes from JSON when the page loads
 document.addEventListener("DOMContentLoaded", function () {
@@ -10,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error('Error loading fortunes:', error));
 
-    // Attach event listeners after loading
+    // Attach event listeners
     document.getElementById("cookie").addEventListener("click", crackCookie);
     document.getElementById("newCookie").addEventListener("click", resetGame);
 });
@@ -21,6 +24,9 @@ function crackCookie() {
         alert("Fortunes are still loading. Please wait.");
         return;
     }
+
+    // Play crack sound
+    crackSound.play();
 
     let randomIndex = Math.floor(Math.random() * fortunes.length);
     let fortuneText = fortunes[randomIndex];
