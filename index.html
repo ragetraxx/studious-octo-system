@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortune Cookie</title>
+    <title>Fortune Cookie Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<header>
-    <img src="IMG_20250227_211031.png" alt="Logo" id="logo">
-</header>
 <body>
     <div class="container">
-        <h1>Crack the Cookie</h1>
-        <img id="cookie-img" src="cookie.png" alt="Fortune Cookie">
-        <p id="fortune-text">Click the cookie to reveal your fortune!</p>
-        <button id="new-cookie-btn" style="display: none;">Get a New Cookie</button>
+        <img src="logo.png" alt="Game Logo" class="logo">
+        <div class="game">
+            <img src="background.png" alt="Background" class="background">
+            <img src="crack.png" alt="Cracked Cookie" class="crack hidden">
+            <img src="cookie.png" alt="Fortune Cookie" class="cookie" onclick="crackCookie()">
+        </div>
+        <p id="fortune" class="hidden"></p>
     </div>
-    <audio id="crack-sound" src="crack.mp3"></audio>
-    <script src="scripts.js"></script>
+    <audio id="crackSound" src="cookie.mp3"></audio>
+    <script src="script.js"></script>
 </body>
 </html>
