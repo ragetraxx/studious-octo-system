@@ -10,7 +10,15 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Fortunes loaded:", data);
             window.fortunes = data.fortunes;
         })
-        .catch(error => console.error("Error loading fortunes:", error));
+        .catch(error => {
+            console.error("Error loading fortunes:", error);
+            // Fallback fortunes in case the JSON file fails to load
+            window.fortunes = [
+                "Try again later!",
+                "Your fortune is on its way!",
+                "Patience is key."
+            ];
+        });
 });
 
 function crackCookie() {
@@ -20,8 +28,12 @@ function crackCookie() {
     let newCookieBtn = document.getElementById("newCookie");
 
     if (!window.fortunes || window.fortunes.length === 0) {
-        alert("Fortunes not loaded! Check your fortunes.json file.");
-        return;
+        alert("Fortunes not loaded! Using default fortunes.");
+        window.fortunes = [
+            "Keep going, success is near!",
+            "The answer is within you.",
+            "Unexpected surprises await!"
+        ];
     }
 
     // Change cookie image to cracked version
