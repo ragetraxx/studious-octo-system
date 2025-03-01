@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     fetch("fortunes.json")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to load fortunes.json");
+            }
+            return response.json();
+        })
         .then(data => {
+            console.log("Fortunes loaded:", data);
             window.fortunes = data.fortunes;
         })
         .catch(error => console.error("Error loading fortunes:", error));
