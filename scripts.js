@@ -1,13 +1,21 @@
+// Global variable to store fortunes
 let fortunes = [];
 
-// Load fortunes from JSON file
-fetch('fortunes.json')
-    .then(response => response.json())
-    .then(data => {
-        fortunes = data.fortunes;
-    })
-    .catch(error => console.error('Error loading fortunes:', error));
+// Load fortunes from JSON when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('fortunes.json')
+        .then(response => response.json())
+        .then(data => {
+            fortunes = data.fortunes;
+        })
+        .catch(error => console.error('Error loading fortunes:', error));
 
+    // Attach event listeners after loading
+    document.getElementById("cookie").addEventListener("click", crackCookie);
+    document.getElementById("newCookie").addEventListener("click", resetGame);
+});
+
+// Function to display a random fortune
 function crackCookie() {
     if (fortunes.length === 0) {
         alert("Fortunes are still loading. Please wait.");
@@ -23,6 +31,7 @@ function crackCookie() {
     document.getElementById("newCookie").classList.remove("hidden");
 }
 
+// Function to reset the game
 function resetGame() {
     document.getElementById("fortune").classList.add("hidden");
     document.getElementById("cookie").classList.remove("hidden");
