@@ -1,67 +1,30 @@
-document.addEventListener("DOMContentLoaded", function() {
-    fetch("fortunes.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load fortunes.json");
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Fortunes loaded:", data);
-            window.fortunes = data.fortunes;
-        })
-        .catch(error => {
-            console.error("Error loading fortunes:", error);
-            // Fallback fortunes in case the JSON file fails to load
-            window.fortunes = [
-                "Try again later!",
-                "Your fortune is on its way!",
-                "Patience is key."
-            ];
-        });
-});
+let fortunes = [];
+
+// Load fortunes from JSON file
+fetch('fortunes.json')
+    .then(response => response.json())
+    .then(data => {
+        fortunes = data.fortunes;
+    })
+    .catch(error => console.error('Error loading fortunes:', error));
 
 function crackCookie() {
-    let cookie = document.getElementById("cookie");
-    let fortuneText = document.getElementById("fortune");
-    let sound = document.getElementById("crackSound");
-    let newCookieBtn = document.getElementById("newCookie");
-
-    if (!window.fortunes || window.fortunes.length === 0) {
-        alert("Fortunes not loaded! Using default fortunes.");
-        window.fortunes = [
-            "Keep going, success is near!",
-            "The answer is within you.",
-            "Unexpected surprises await!"
-        ];
+    if (fortunes.length === 0) {
+        alert("Fortunes are still loading. Please wait.");
+        return;
     }
 
-    // Change cookie image to cracked version
-    cookie.src = "cracked.png";
-    cookie.onclick = null; // Disable clicking again
+    let randomIndex = Math.floor(Math.random() * fortunes.length);
+    let fortuneText = fortunes[randomIndex];
 
-    // Play crack sound
-    sound.play();
-
-    // Pick a random fortune and show it
-    let randomFortune = window.fortunes[Math.floor(Math.random() * window.fortunes.length)];
-    fortuneText.textContent = randomFortune;
-    fortuneText.classList.remove("hidden");
-
-    // Show the "Get a New Cookie" button
-    newCookieBtn.classList.remove("hidden");
+    document.getElementById("fortune").innerText = fortuneText;
+    document.getElementById("fortune").classList.remove("hidden");
+    document.getElementById("cookie").classList.add("hidden");
+    document.getElementById("newCookie").classList.remove("hidden");
 }
 
 function resetGame() {
-    let cookie = document.getElementById("cookie");
-    let fortuneText = document.getElementById("fortune");
-    let newCookieBtn = document.getElementById("newCookie");
-
-    // Reset to original cookie image
-    cookie.src = "cookie.png";
-    cookie.onclick = crackCookie; // Re-enable clicking
-
-    // Hide fortune text and button
-    fortuneText.classList.add("hidden");
-    newCookieBtn.classList.add("hidden");
+    document.getElementById("fortune").classList.add("hidden");
+    document.getElementById("cookie").classList.remove("hidden");
+    document.getElementById("newCookie").classList.add("hidden");
 }
