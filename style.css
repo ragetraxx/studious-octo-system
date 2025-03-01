@@ -1,56 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f8e8c2;
-    margin: 0;
-    padding: 0;
-}
-
-/* Header styles */
-header {
+    background: url("background.png") no-repeat center center fixed;
+    background-size: cover;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.6); /* Slight dark overlay */
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
-    margin-top: 50px;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    color: #6b4226;
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
 }
 
-#cookie-img {
+.game {
+    position: relative;
+}
+
+.cookie, .crack {
     width: 200px;
     cursor: pointer;
-    transition: transform 0.2s;
+    position: relative;
 }
 
-#cookie-img:active {
-    transform: scale(0.9);
+.hidden {
+    display: none;
 }
 
 p {
-    font-size: 18px;
-    color: #6b4226;
+    font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
-}
-
-button {
-    background-color: #6b4226;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-top: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #8a5a3d;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    display: inline-block;
 }
