@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function crackCookie() {
-    let cookie = document.querySelector(".cookie");
-    let crack = document.querySelector(".crack");
+    let cookie = document.getElementById("cookie");
     let fortuneText = document.getElementById("fortune");
     let sound = document.getElementById("crackSound");
     let newCookieBtn = document.getElementById("newCookie");
@@ -19,31 +18,32 @@ function crackCookie() {
         return;
     }
 
-    // Hide cookie, show cracked cookie, play sound
-    cookie.classList.add("hidden");
-    crack.classList.remove("hidden");
+    // Change cookie image to cracked version
+    cookie.src = "cracked.png";
+    cookie.onclick = null; // Disable clicking again
+
+    // Play crack sound
     sound.play();
 
-    // Pick a random fortune
+    // Pick a random fortune and show it
     let randomFortune = window.fortunes[Math.floor(Math.random() * window.fortunes.length)];
-    
-    // Show fortune text after a slight delay for effect
-    setTimeout(() => {
-        fortuneText.textContent = randomFortune;
-        fortuneText.classList.remove("hidden");
-        newCookieBtn.classList.remove("hidden"); // Show the button to get a new cookie
-    }, 500);
+    fortuneText.textContent = randomFortune;
+    fortuneText.classList.remove("hidden");
+
+    // Show the "Get a New Cookie" button
+    newCookieBtn.classList.remove("hidden");
 }
 
 function resetGame() {
-    let cookie = document.querySelector(".cookie");
-    let crack = document.querySelector(".crack");
+    let cookie = document.getElementById("cookie");
     let fortuneText = document.getElementById("fortune");
     let newCookieBtn = document.getElementById("newCookie");
 
-    // Hide elements and reset the game
-    crack.classList.add("hidden");
+    // Reset to original cookie image
+    cookie.src = "cookie.png";
+    cookie.onclick = crackCookie; // Re-enable clicking
+
+    // Hide fortune text and button
     fortuneText.classList.add("hidden");
     newCookieBtn.classList.add("hidden");
-    cookie.classList.remove("hidden");
 }
