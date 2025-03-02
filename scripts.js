@@ -2,7 +2,7 @@
 let fortunes = [];
 
 // Load sound effect
-let crackSound = new Audio('fail.mp3');
+let crackSound = new Audio('boink.mp3');
 
 // Load fortunes from JSON when the page loads
 document.addEventListener("DOMContentLoaded", function () {
